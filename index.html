@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jewellery Order App</title>
+  <script defer src="script.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="p-6 bg-gray-100 text-gray-900">
+  <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-md">
+    <h1 class="text-2xl font-bold mb-4">Jewellery Order</h1>
+
+    <label class="block mb-2">Select Product</label>
+    <select id="product" class="w-full p-2 border rounded mb-4">
+      <option value="">-- Select --</option>
+      <option value="SAVITHRI JALARA">SAVITHRI JALARA</option>
+      <option value="KUSBOO PATTI KJ">KUSBOO PATTI KJ</option>
+    </select>
+
+    <label class="block mb-2">Enter Quantity</label>
+    <input type="number" id="quantity" value="1" min="1" class="w-full p-2 border rounded mb-4">
+
+    <button id="calculateBtn" class="bg-blue-600 text-white px-4 py-2 rounded">Calculate</button>
+
+    <div id="result" class="mt-6"></div>
+  </div>
+</body>
+</html>
