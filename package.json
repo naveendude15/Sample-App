@@ -1,0 +1,19 @@
+document.getElementById("calculateBtn").addEventListener("click", async () => {
+  const product = document.getElementById("product").value;
+  const quantity = parseInt(document.getElementById("quantity").value);
+
+  const res = await fetch(`/calculate?product=${encodeURIComponent(product)}&quantity=${quantity}`);
+  const data = await res.json();
+
+  let resultHtml = `<h2 class="text-xl font-semibold mb-2">Component Breakdown</h2><ul class="list-disc pl-6">`;
+  let total = 0;
+
+  for (const [component, weight] of Object.entries(data.components)) {
+    const totalWeight = weight * quantity;
+    total += totalWeight;
+    resultHtml += `<li>${component}: ${totalWeight.toFixed(2)} gm</li>`;
+  }
+
+  resultHtml += `</ul><p class="mt-4 font-bold">Total Weight: ${total.toFixed(2)} gm</p>`;
+  document.getElementById("result").innerHTML = resultHtml;
+});
